@@ -1,0 +1,298 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="hm.Web.Master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><%=title %></title>
+    <meta name="Keywords" content=<%=keywords %> />
+    <meta name="Description" content=<%=des %> />
+    <link href="http://www.calumetspecialty.com/templates/rt_chapelco/favicon.ico" rel="shortcut icon"
+        type="image/vnd.microsoft.icon" />
+    <link rel="stylesheet" href="css/menu.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/settings.css" type="text/css" />
+    <link rel="stylesheet" href="http://www.calumetspecialty.com/templates/rt_chapelco/css-compiled/master-594504c8a0b04a6a22c097726706907c.css" type="text/css" />
+    <link rel="stylesheet" href="http://www.calumetspecialty.com/media/com_uniterevolution/assets/rs-plugin/css/settings.css" type="text/css" />
+    <script src="/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/jquery-noconflict.js" type="text/javascript"></script>
+    <script src="/js/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/js/tabs-state.js" type="text/javascript"></script>
+    <script src="/js/mootools-core.js" type="text/javascript"></script>
+    <script src="/js/core.js" type="text/javascript"></script>
+    <script src="/js/caption.js" type="text/javascript"></script>
+    <script src="/js/mootools-more.js" type="text/javascript"></script>
+    <script src="/js/rokbox.js" type="text/javascript"></script>
+    <script src="/js/browser-engines.js" type="text/javascript"></script>
+    <script src="/js/rokmediaqueries.js" type="text/javascript"></script>
+    <script src="/js/rokmediaqueries.js" type="text/javascript"></script>
+    <script src="/js/responsive.js" type="text/javascript"></script>
+    <script src="/js/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        jQuery(window).on('load', function () {
+            new JCaption('img.caption');
+        });
+        if (typeof RokBoxSettings == 'undefined') RokBoxSettings = { pc: '100' };
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+		m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../www.google-analytics.com/analytics.js', '__gaTracker');
+        __gaTracker('create', 'UA-43322709-1', 'auto');
+        __gaTracker('send', 'pageview');
+	
+    </script>
+    <style>
+    .lastli:before{ background:none}
+    .component-content h2{padding-bottom:0px;margin-bottom:0px}
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <SCRIPT language=javascript> 
+<!--
+        window.onerror = function () { return true; } 
+// --> 
+</SCRIPT>
+</head>
+<body class="logo-type-custom main-body-light main-showcasebg-abstract contentstyle-preset1 font-family-helvetica font-size-is-default menu-type-dropdownmenu layout-mode-responsive col12">
+    <form id="form1" runat="server">
+    <div id="rt-page-surround">
+        <header id="rt-top-surround">
+						<div id="rt-header">
+			<div class="rt-container">
+				<div class="rt-grid-2 rt-alpha">
+        <div class="rt-block nomarginall nopaddingall">
+        <div class="module-surround">
+	                	<div class="module-content">
+        		
+
+<div class="customnomarginall nopaddingall"  >
+	<p><a href="default.aspx" title="Calumet Specialty Products"><%=logo%></a></p></div>
+        	</div>
+        </div>
+    </div>
+	
+</div>
+<div class="rt-grid-10 rt-omega">
+    	<div class="rt-block menu-block">
+		<div class="gf-menu-device-container"></div>
+<ul class="gf-menu l1 " >
+                    <li id="nodeMain" class="item101 active last" >
+                        <span class="rt-menu-border"></span>
+                        <a class="item" href="default.aspx"  >
+                                <span class="rt-item-border"></span>
+                                                首页                            </a>
+                        <span class="rt-item-shadow"></span>
+                    </li>
+                    <asp:Repeater runat="server" ID="rptNodelist" OnItemDataBound="rptNodelist_ItemDataBound">
+        <ItemTemplate>
+        <li id="node<%#Eval("id")%>" class="item138 parent" >
+                        <span class="rt-menu-border"></span>
+                        <a class="item" href="<%#getNodeUrl(DataBinder.Eval(Container.DataItem,"Id").ToString()) %>"  >
+                                <span class="rt-item-border"></span>
+                                                <%#Eval("title")%>                                <span class="border-fixer"></span>
+                            </a>
+                        <span class="rt-item-shadow"></span>
+                        <asp:Literal ID="litStart" runat="server"></asp:Literal>
+        <asp:Repeater runat="server" ID="rptChildNodelist"  OnItemDataBound="rptChildNodelist_ItemDataBound">
+                            <ItemTemplate>
+                            
+                            <li class="item235" >
+                        <a class="item" href="<%#getNodeUrl(DataBinder.Eval(Container.DataItem,"Id").ToString()) %>"  >
+                                                <%#Eval("title")%>                            </a>
+                                                <asp:Literal ID="litStart2" runat="server"></asp:Literal>
+                                                <asp:Repeater runat="server" ID="rptChildNodelist2">
+                            <ItemTemplate>
+                            <li class="item230" >
+                        <a class="item" href="<%#getNodeUrl(DataBinder.Eval(Container.DataItem,"Id").ToString()) %>"><%#Eval("title")%></a></li>   
+                            </ItemTemplate>
+                        </asp:Repeater>
+                                                <asp:Literal ID="litEnd2" runat="server"></asp:Literal>
+                    
+                    </li>
+                                
+                            </ItemTemplate>
+                        </asp:Repeater>
+                         <asp:Literal ID="litEnd" runat="server"></asp:Literal>
+                        
+                    </li>
+                         </ItemTemplate>
+    </asp:Repeater>
+        
+                      <li class="lastli"><img width="260px" src="images/kalemei.png" style="margin-top:10px" /></li>     
+            </ul>		<div class="clear"></div>
+            
+	</div>
+	
+</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+			</header>
+        <div id="rt-drawer">
+            <div class="rt-container">
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="rt-showcase-bg">
+        </div>
+        <div id="rt-showcase">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <footer id="rt-footer-surround">
+				<div id="rt-footer">
+			<div class="rt-container">
+				<div class="rt-grid-3 rt-alpha">
+        <div class="rt-block ">
+        <div class="module-surround">
+	        			<div class="module-title">
+	     		<h2 class="title">
+	     				     			卡乐美新闻	     		</h2>
+			</div>
+	                	<div class="module-content">
+        		
+
+<!-- JoomlaWorks "Simple RSS Feed Reader" Module (v3.0) starts here -->
+<div class="srfrContainer ">
+
+	
+	<ul class="srfrList">
+				<%--<li class="srfrRow srfrRowIsOdd">
+			<a target="_blank" href="http://calumetspecialty.investorroom.com/2015-03-26-Calumet-Specialty-Products-Partners-L-P-Announces-Hiring-Interim-Chief-Executive-Officer-Bill-Hatch">
+								Calumet 正式宣布聘用临时CEO Bill Hatch				
+							</a>
+						<div class="srfrFeedDetails">
+				
+				
+								<span class="srfrFeedItemDate">2015年3月26日</span>
+							</div>
+					</li>--%>
+			</ul>
+
+	
+	</div>
+
+<div class="clr"></div>
+
+<!-- JoomlaWorks "Simple RSS Feed Reader" Module (v3.0) ends here -->
+
+        	</div>
+        </div>
+    </div>
+	
+</div>
+<div class="rt-grid-3">
+        <div class="rt-block hidden-phone">
+        <div class="module-surround">
+	        			<div class="module-title">
+	     		<h2 class="title">
+	     				     			联系方式	     		</h2>
+			</div>
+	                	<div class="module-content">
+        		
+
+<div class="customhidden-phone"  >
+	<div>
+    <strong><span class="icon-phone">&nbsp;&nbsp;0531-82622536</span></strong><br />
+    <strong><span class="icon-phone">&nbsp;&nbsp;0531-82622532</span></strong><br />
+    <strong><span class="icon-envelope">&nbsp; customerservice@clmt.com.cn</span></strong></div>
+<div><strong><span><br />山东省济南市历下区旅游路25966号<br>邮编250014</span></div></div>
+        	</div>
+        </div>
+    </div>
+	
+</div>
+<div class="rt-grid-3">
+        <div class="rt-block hidden-phone">
+        <div class="module-surround">
+	        			<div class="module-title">
+	     		<h2 class="title">
+	     				     			公司位置	     		</h2>
+			</div>
+	                	<div class="module-content">
+        		
+
+<div class="customhidden-phone"  >
+	<p><a title="Calumet Specialty Partners - US Locations" href="node.aspx?id=16"><img src="images/map.jpg" alt="Calumet Specialty Partners - US Locations" height="200" width="309" /></a></p></div>
+        	</div>
+        </div>
+    </div>
+	
+</div>
+<div class="rt-grid-3 rt-omega">
+        <div class="rt-block hidden-phone">
+        <div class="module-surround">
+	        			<div class="module-title">
+	     		<h2 class="title">
+	     				     			产品样本	     		</h2>
+			</div>
+	                	<div class="module-content">
+        		
+
+<div class="customhidden-phone"  >
+	<p><strong>订购样品，请您访问我们产品客服网页并提交您的样本请求</strong></p>
+    <p><a href="upload/卡乐美公司简介.pdf">资料下载</a></p>
+    </div>
+        	</div>
+        </div>
+    </div>
+	
+</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+						<div id="rt-copyright">
+			<div class="rt-container">
+				<div class="rt-grid-3 rt-alpha">
+        <div class="rt-block medmargintop medpaddingtop">
+        <div class="module-surround">
+	                	<div class="module-content">
+        		
+
+<div class="custommedmargintop medpaddingtop"  >
+	<p><a target="_blank" title="Follow Calumet Specialty on Linked In" href="http://www.linkedin.com/company/calumet-specialty"><img alt="Follow Calumet Specialty on Linked In" src="http://www.calumetspecialty.com/images/linked-in.png" height="53" width="122" /></a></p></div>
+        	</div>
+        </div>
+    </div>
+	
+</div>
+<div class="rt-grid-6">
+        <div class="rt-block nomarginall nopaddingall">
+        <div class="module-surround">
+	                	<div class="module-content">
+        		
+
+<div class="customnomarginall nopaddingall"  >
+<asp:Literal ID="litBottom" runat="server"></asp:Literal>
+	</div>
+        	</div>
+        </div>
+    </div>
+	
+</div>
+<div class="rt-grid-3 rt-omega">
+        <div class="rt-block smallmargintop smallpaddingtop">
+        <div class="module-surround">
+	                	<div class="module-content">
+        		
+
+<div class="customsmallmargintop smallpaddingtop"  >
+	<p style="text-align: center;"><span style="font-size: medium;"> <strong>新客户详询</strong> </span><br /><span style="font-size: x-large;"><strong>0531-82622532<br /><span style="font-size: small; color: #ffffff;">customerservice@clmt.com.cn </a> </span><br /> </strong> </span></p></div>
+        	</div>
+        </div>
+    </div>
+	
+</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+			</footer>
+    </div>
+    </form>
+</body>
+</html>
